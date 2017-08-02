@@ -28,6 +28,11 @@ namespace WpfApp1
             //return $"[{Date}]{Name}";
             return string.Format("[{0}]{1}", Name, Date);
         }
+
+        public static explicit operator Notification(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class NotificationProvider

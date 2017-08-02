@@ -38,7 +38,10 @@ namespace WpfApp1
                 foreach (var item in new NotificationProvider().DownloadAllNotifications(AddressTextBox.Text))
                 {
                     //MessageBox.Show(item.ToString());
+                    //ResponseListBox.Items.Add(item);
                     NotifacationListBox.Items.Add(item);
+                    //MessageBox.Show(item.Name);
+                    //Notification x =(Notification) item.Name;
                 }
             }
             catch(Exception ex)
@@ -50,14 +53,55 @@ namespace WpfApp1
 
         private void NotifacationListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
 
         }
+        //private void NotifationListBox_leave(object sender, EventArgs e)
+        //{
+        //    this.NotifacationListBox.Items.Add(this.NotifacationListBox.Items + Environment.NewLine);
+        //}
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            NotifacationListBox.Items.Add("Item1");
-            NotifacationListBox.Items.Add("Item2");
-            NotifacationListBox.Items.Add("Item3");
+            //foreach (var item in new NotificationProvider().DownloadAllNotifications(AddressTextBox.Text))
+            //{
+            //    //MessageBox.Show(item.ToString());
+            //    //NotifacationListBox.Items.Add(item);
+            //}
+            //NotifacationListBox.Items.Add("Item1");
+            //ResponseListBox.Items.Add("Item1");
         }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //NotifacationListBox.Items.Clear();
+                //ResponseListBox.Items.Clear();
+                //foreach (var item in new NotificationProvider().DownloadAllNotifications(AddressTextBox.Text))
+                //{
+                //    //var x = new NotificationProvider().DownloadAllNotifications(AddressTextBox.Text);
+                //    //x.ToList();
+                //    //MessageBox.Show(item.ToString());
+                //    ResponseListBox.Items.Add(item);
+                //}
+                ResponseListBox.Items.Add(NotifacationListBox.SelectedItem );
+                NotifacationListBox.Items.RemoveAt(NotifacationListBox.SelectedIndex);
+                //NotifacationListBox.SelectedItems.Remove(NotifacationListBox.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void ResponseListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
     }
 }

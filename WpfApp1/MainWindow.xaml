@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
-        <ListBox x:Name="NotifacationListBox" Margin="62,87,306,85" RenderTransformOrigin="0.5,0.5" SelectionChanged="NotifacationListBox_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160*"/>
+            <RowDefinition Height="159*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="NotifacationListBox" Margin="51,87,309,85" RenderTransformOrigin="0.5,0.5" SelectionChanged="NotifacationListBox_SelectionChanged" Grid.RowSpan="2" HorizontalContentAlignment="Stretch" Width="157" VerticalContentAlignment="Stretch">
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,7 +22,18 @@
             </ListBox.RenderTransform>
         </ListBox>
         <Button x:Name="LoadButton" Content="加载" HorizontalAlignment="Left" Margin="62,37,0,0" VerticalAlignment="Top" Width="75" Click="LoadButton_Click"/>
-        <TextBox x:Name="AddressTextBox" TextWrapping="Wrap" Text="http://dean.xjtu.edu.cn/jxxx/xwdt.htm" VerticalAlignment="Top"/>
+        <TextBox x:Name="AddressTextBox" TextWrapping="Wrap" Text="http://dean.xjtu.edu.cn/jxxx/xwdt.htm" VerticalAlignment="Top" Margin="10,0,-10,0"/>
+        <ListBox x:Name="ResponseListBox" Margin="312,85,41,87" VerticalContentAlignment="Stretch" SelectionChanged="ResponseListBox_SelectionChanged" HorizontalContentAlignment="Stretch" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Width="164">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <Button x:Name="RemoveButton" Content=">" Margin="233,148,226,0" VerticalAlignment="Top" FontSize="20" Click="RemoveButton_Click" Grid.RowSpan="2" HorizontalAlignment="Center" Height="24" Width="58"/>
 
     </Grid>
 </Window>
